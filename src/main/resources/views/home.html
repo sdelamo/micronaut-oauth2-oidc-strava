@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>Micronaut - Strava example</h1>
+
+<h2 th:if="${security}">Name: <span th:text="${security.attributes.get('firstname')}"></span> <span th:text="${security.attributes.get('lastname')}"></span></h2>
+<h2 th:unless="${security}">Name: Anonymous</h2>
+
+<nav>
+    <ul>
+        <li th:unless="${security}"><a href="/oauth/login/strava">Enter</a></li>
+        <li th:if="${security}"><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+</body>
+</html>
